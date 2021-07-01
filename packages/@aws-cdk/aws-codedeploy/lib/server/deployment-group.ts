@@ -248,9 +248,9 @@ export class ServerDeploymentGroup extends ServerDeploymentGroupBase {
    * @returns a Construct representing a reference to an existing Deployment Group
    */
   public static fromServerDeploymentGroupAttributes(
-    scope: Construct,
-    id: string,
-    attrs: ServerDeploymentGroupAttributes): IServerDeploymentGroup {
+      scope: Construct,
+      id: string,
+      attrs: ServerDeploymentGroupAttributes): IServerDeploymentGroup {
     return new ImportedServerDeploymentGroup(scope, id, attrs);
   }
 

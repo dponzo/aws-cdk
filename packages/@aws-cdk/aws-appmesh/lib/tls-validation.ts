@@ -192,7 +192,7 @@ export abstract class SubjectAlternativeNames {
 
 class SubjectAlternativeNamesImpl extends SubjectAlternativeNames {
   constructor(
-    private readonly matchProperty: CfnVirtualNode.SubjectAlternativeNameMatchersProperty,
+      private readonly matchProperty: CfnVirtualNode.SubjectAlternativeNameMatchersProperty,
   ) { super(); }
 
   public bind(_scope: Construct): SubjectAlternativeNamesMatcherConfig {

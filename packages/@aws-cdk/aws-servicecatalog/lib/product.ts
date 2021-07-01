@@ -178,7 +178,7 @@ export class CloudFormationProduct extends Product {
   }
 
   private renderProvisioningArtifacts(
-    props: CloudFormationProductProps): CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty[] {
+      props: CloudFormationProductProps): CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty[] {
     return props.productVersions.map(productVersion => {
       const template = productVersion.cloudFormationTemplate.bind(this);
       InputValidator.validateUrl(this.node.path, 'provisioning template url', template.httpUrl);

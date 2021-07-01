@@ -201,7 +201,6 @@ export interface AdditionalArtifact {
  * A standard synth with a generated buildspec
  */
 export class SimpleSynthAction implements codepipeline.IAction, iam.IGrantable {
-
   /**
    * Create a standard NPM synth action
    *

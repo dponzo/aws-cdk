@@ -24,7 +24,6 @@ interface Suite {
 export function behavior(name: string, cb: (suite: Suite) => void) {
   // 'describe()' adds a nice grouping in Jest
   describe(name, () => {
-
     const unwritten = new Set(['modern', 'legacy']);
     cb({
       each: (cases: any[]) => {

@@ -84,14 +84,13 @@ export interface WithDefaultPrinterProps {
 }
 
 export class StackActivityMonitor {
-
   /**
    * Create a Stack Activity Monitor using a default printer, based on context clues
    */
   public static withDefaultPrinter(
-    cfn: aws.CloudFormation,
-    stackName: string,
-    stackArtifact: cxapi.CloudFormationStackArtifact, options: WithDefaultPrinterProps = {}) {
+      cfn: aws.CloudFormation,
+      stackName: string,
+      stackArtifact: cxapi.CloudFormationStackArtifact, options: WithDefaultPrinterProps = {}) {
     const stream = process.stderr;
 
     const props: PrinterProps = {
@@ -135,11 +134,11 @@ export class StackActivityMonitor {
   private readPromise?: Promise<any>;
 
   constructor(
-    private readonly cfn: aws.CloudFormation,
-    private readonly stackName: string,
-    private readonly printer: IActivityPrinter,
-    private readonly stack?: cxapi.CloudFormationStackArtifact,
-    changeSetCreationTime?: Date,
+      private readonly cfn: aws.CloudFormation,
+      private readonly stackName: string,
+      private readonly printer: IActivityPrinter,
+      private readonly stack?: cxapi.CloudFormationStackArtifact,
+      changeSetCreationTime?: Date,
   ) {
     this.startTime = changeSetCreationTime?.getTime() ?? Date.now();
   }
@@ -564,7 +563,6 @@ export class HistoryActivityPrinter extends ActivityPrinterBase {
     // occurs, after which we can be triggered again.
     this.lastPrintTime = +Infinity;
   }
-
 }
 
 /**

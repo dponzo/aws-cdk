@@ -36,7 +36,7 @@ export interface ConnectionPoolConfig {
  * This is the helper method to render TLS property of client policy.
  */
 export function renderTlsClientPolicy(scope: Construct, tlsClientPolicy: TlsClientPolicy | undefined)
-  : CfnVirtualNode.ClientPolicyTlsProperty | undefined {
+    : CfnVirtualNode.ClientPolicyTlsProperty | undefined {
   const certificate = tlsClientPolicy?.mutualTlsCertificate?.bind(scope).tlsCertificate;
   const sans = tlsClientPolicy?.validation.subjectAlternativeNames;
 
@@ -61,7 +61,7 @@ export function renderTlsClientPolicy(scope: Construct, tlsClientPolicy: TlsClie
  * This is the helper method to render the TLS config for a listener.
  */
 export function renderListenerTlsOptions(scope: Construct, listenerTls: ListenerTlsOptions | undefined)
-  : CfnVirtualNode.ListenerTlsProperty | undefined {
+    : CfnVirtualNode.ListenerTlsProperty | undefined {
   const tlsValidation = listenerTls?.mutualTlsValidation;
 
   return listenerTls

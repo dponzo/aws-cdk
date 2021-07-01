@@ -44,7 +44,6 @@ export abstract class TlsCertificate {
    * Returns TLS certificate based provider.
    */
   public abstract bind(_scope: Construct): TlsCertificateConfig;
-
 }
 
 /**

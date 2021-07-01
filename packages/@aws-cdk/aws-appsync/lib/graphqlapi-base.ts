@@ -137,7 +137,6 @@ export interface IGraphqlApi extends IResource {
  * Base Class for GraphQL API
  */
 export abstract class GraphqlApiBase extends Resource implements IGraphqlApi {
-
   /**
    * an unique AWS AppSync GraphQL API identifier
    * i.e. 'lxz775lwdrgcndgz3nurvac7oa'
@@ -222,11 +221,11 @@ export abstract class GraphqlApiBase extends Resource implements IGraphqlApi {
    * @param options The optional configuration for this data source
    */
   public addRdsDataSource(
-    id: string,
-    serverlessCluster: IServerlessCluster,
-    secretStore: ISecret,
-    databaseName?: string,
-    options?: DataSourceOptions,
+      id: string,
+      serverlessCluster: IServerlessCluster,
+      secretStore: ISecret,
+      databaseName?: string,
+      options?: DataSourceOptions,
   ): RdsDataSource {
     return new RdsDataSource(this, id, {
       api: this,

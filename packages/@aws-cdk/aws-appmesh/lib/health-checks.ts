@@ -134,12 +134,12 @@ export abstract class HealthCheck {
 
 class HealthCheckImpl extends HealthCheck {
   constructor(
-    private readonly protocol: Protocol,
-    private readonly healthyThreshold: number = 2,
-    private readonly unhealthyThreshold: number = 2,
-    private readonly interval: cdk.Duration = cdk.Duration.seconds(5),
-    private readonly timeout: cdk.Duration = cdk.Duration.seconds(2),
-    private readonly path?: string) {
+      private readonly protocol: Protocol,
+      private readonly healthyThreshold: number = 2,
+      private readonly unhealthyThreshold: number = 2,
+      private readonly interval: cdk.Duration = cdk.Duration.seconds(5),
+      private readonly timeout: cdk.Duration = cdk.Duration.seconds(2),
+      private readonly path?: string) {
     super();
     if (healthyThreshold < 2 || healthyThreshold > 10) {
       throw new Error('healthyThreshold must be between 2 and 10');
@@ -185,5 +185,4 @@ class HealthCheckImpl extends HealthCheck {
       },
     };
   }
-
 }

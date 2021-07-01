@@ -27,7 +27,6 @@ export interface DockerDomainCredentials {
 }
 
 export class Docker {
-
   private configDir: string | undefined = undefined;
 
   constructor(private readonly logger?: Logger) {

@@ -268,9 +268,9 @@ export abstract class HttpHeaderMatch {
 
 class HeaderMatchImpl extends HttpHeaderMatch {
   constructor(
-    private readonly headerName: string,
-    private readonly invert: boolean,
-    private readonly matchProperty: CfnRoute.HeaderMatchMethodProperty,
+      private readonly headerName: string,
+      private readonly invert: boolean,
+      private readonly matchProperty: CfnRoute.HeaderMatchMethodProperty,
   ) {
     super();
   }

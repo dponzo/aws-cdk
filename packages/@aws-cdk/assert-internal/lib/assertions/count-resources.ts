@@ -21,9 +21,9 @@ class CountResourcesAssertion extends JestFriendlyAssertion<StackInspector> {
   private readonly props: any;
 
   constructor(
-    private readonly resourceType: string,
-    private readonly count: number,
-    props: any = null) {
+      private readonly resourceType: string,
+      private readonly count: number,
+      props: any = null) {
     super();
     this.props = props;
   }

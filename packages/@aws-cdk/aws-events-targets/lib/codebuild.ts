@@ -31,15 +31,14 @@ export interface CodeBuildProjectProps extends TargetBaseProps {
  */
 export class CodeBuildProject implements events.IRuleTarget {
   constructor(
-    private readonly project: codebuild.IProject,
-    private readonly props: CodeBuildProjectProps = {},
+      private readonly project: codebuild.IProject,
+      private readonly props: CodeBuildProjectProps = {},
   ) {}
 
   /**
    * Allows using build projects as event rule targets.
    */
   public bind(_rule: events.IRule, _id?: string): events.RuleTargetConfig {
-
     if (this.props.deadLetterQueue) {
       addToDeadLetterQueueResourcePolicy(_rule, this.props.deadLetterQueue);
     }

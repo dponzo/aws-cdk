@@ -195,8 +195,8 @@ export class Activity extends Resource implements IActivity {
   }
 
   private cannedMetric(
-    fn: (dims: { ActivityArn: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { ActivityArn: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ ActivityArn: this.activityArn }),
       ...props,

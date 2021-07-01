@@ -22,7 +22,6 @@ beforeEach(() => {
       stacks: [MockStack.MOCK_STACK_C],
     }],
   });
-
 });
 
 function defaultToolkitSetup() {
@@ -340,8 +339,8 @@ class FakeCloudFormation extends CloudFormationDeployments {
   private readonly expectedNotificationArns?: string[];
 
   constructor(
-    expectedTags: { [stackName: string]: { [key: string]: string } } = {},
-    expectedNotificationArns?: string[],
+      expectedTags: { [stackName: string]: { [key: string]: string } } = {},
+      expectedNotificationArns?: string[],
   ) {
     super({ sdkProvider: undefined as any });
 

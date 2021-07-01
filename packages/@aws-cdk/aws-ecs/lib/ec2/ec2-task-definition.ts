@@ -83,7 +83,6 @@ export interface Ec2TaskDefinitionAttributes extends CommonTaskDefinitionAttribu
  * @resource AWS::ECS::TaskDefinition
  */
 export class Ec2TaskDefinition extends TaskDefinition implements IEc2TaskDefinition {
-
   /**
    * Imports a task definition from the specified task definition ARN.
    */
@@ -97,9 +96,9 @@ export class Ec2TaskDefinition extends TaskDefinition implements IEc2TaskDefinit
    * Imports an existing Ec2 task definition from its attributes
    */
   public static fromEc2TaskDefinitionAttributes(
-    scope: Construct,
-    id: string,
-    attrs: Ec2TaskDefinitionAttributes,
+      scope: Construct,
+      id: string,
+      attrs: Ec2TaskDefinitionAttributes,
   ): IEc2TaskDefinition {
     return new ImportedTaskDefinition(scope, id, {
       taskDefinitionArn: attrs.taskDefinitionArn,

@@ -251,10 +251,10 @@ export class TestFixture {
   private readonly bucketsToDelete = new Array<string>();
 
   constructor(
-    public readonly integTestDir: string,
-    public readonly stackNamePrefix: string,
-    public readonly output: NodeJS.WritableStream,
-    public readonly aws: AwsClients) {
+      public readonly integTestDir: string,
+      public readonly stackNamePrefix: string,
+      public readonly output: NodeJS.WritableStream,
+      public readonly aws: AwsClients) {
   }
 
   public log(s: string) {

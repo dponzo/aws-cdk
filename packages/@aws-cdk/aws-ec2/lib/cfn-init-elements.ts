@@ -85,7 +85,6 @@ export class InitServiceRestartHandle {
  * Base class for all CloudFormation Init elements
  */
 export abstract class InitElement {
-
   /**
    * Returns the init element type for this element.
    */
@@ -100,7 +99,6 @@ export abstract class InitElement {
    * @internal
    */
   public abstract _bind(options: InitBindOptions): InitElementConfig;
-
 }
 
 /**
@@ -257,7 +255,6 @@ export class InitCommand extends InitElement {
       },
     };
   }
-
 }
 
 /**
@@ -322,7 +319,6 @@ export interface InitFileAssetOptions extends InitFileOptions, s3_assets.AssetOp
  * Create files on the EC2 instance.
  */
 export abstract class InitFile extends InitElement {
-
   /**
    * Use a literal string as the file content
    */
@@ -514,7 +510,6 @@ export abstract class InitFile extends InitElement {
  * Not supported for Windows systems.
  */
 export class InitGroup extends InitElement {
-
   /**
    * Create a group from its name, and optionally, group id
    */
@@ -540,7 +535,6 @@ export class InitGroup extends InitElement {
       },
     };
   }
-
 }
 
 /**
@@ -703,10 +697,10 @@ export class InitPackage extends InitElement {
   public readonly elementType = InitElementType.PACKAGE.toString();
 
   protected constructor(
-    private readonly type: string,
-    private readonly versions: string[],
-    private readonly packageName?: string,
-    private readonly serviceHandles?: InitServiceRestartHandle[],
+      private readonly type: string,
+      private readonly versions: string[],
+      private readonly packageName?: string,
+      private readonly serviceHandles?: InitServiceRestartHandle[],
   ) {
     super();
   }
@@ -828,7 +822,6 @@ export class InitService extends InitElement {
       },
     };
   }
-
 }
 
 /**

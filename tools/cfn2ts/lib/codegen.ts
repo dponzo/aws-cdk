@@ -139,9 +139,9 @@ export default class CodeGenerator {
    * Return a mapping of { originalName -> newName }.
    */
   private emitPropsTypeProperties(
-    resource: genspec.CodeName,
-    propertiesSpec: { [name: string]: schema.Property },
-    container: Container): Dictionary<string> {
+      resource: genspec.CodeName,
+      propertiesSpec: { [name: string]: schema.Property },
+      container: Container): Dictionary<string> {
     const propertyMap: Dictionary<string> = {};
 
     Object.keys(propertiesSpec).sort(propertyComparator).forEach(propName => {
@@ -466,10 +466,10 @@ export default class CodeGenerator {
    * Generated as a top-level function outside any namespace so we can hide it from library consumers.
    */
   private emitCloudFormationMapper(
-    resource: genspec.CodeName,
-    typeName: genspec.CodeName,
-    propSpecs: { [name: string]: schema.Property },
-    nameConversionTable: Dictionary<string>) {
+      resource: genspec.CodeName,
+      typeName: genspec.CodeName,
+      propSpecs: { [name: string]: schema.Property },
+      nameConversionTable: Dictionary<string>) {
     const mapperName = genspec.cfnMapperName(typeName);
 
     this.code.line('/**');
@@ -560,12 +560,11 @@ export default class CodeGenerator {
    * depending on the type of the L1 property.
    */
   private emitFromCfnFactoryFunction(
-    resource: genspec.CodeName,
-    typeName: genspec.CodeName,
-    propSpecs: { [name: string]: schema.Property },
-    nameConversionTable: Dictionary<string>,
-    allowReturningIResolvable: boolean) {
-
+      resource: genspec.CodeName,
+      typeName: genspec.CodeName,
+      propSpecs: { [name: string]: schema.Property },
+      nameConversionTable: Dictionary<string>,
+      allowReturningIResolvable: boolean) {
     const factoryName = genspec.fromCfnFactoryName(typeName);
 
     this.code.line();
@@ -703,10 +702,10 @@ export default class CodeGenerator {
    * Generated as a top-level function outside any namespace so we can hide it from library consumers.
    */
   private emitPropertiesValidator(
-    resource: genspec.CodeName,
-    typeName: genspec.CodeName,
-    propSpecs: { [name: string]: schema.Property },
-    nameConversionTable: Dictionary<string>): void {
+      resource: genspec.CodeName,
+      typeName: genspec.CodeName,
+      propSpecs: { [name: string]: schema.Property },
+      nameConversionTable: Dictionary<string>): void {
     const validatorName = genspec.validatorName(typeName);
 
     this.code.line('/**');
@@ -814,7 +813,6 @@ export default class CodeGenerator {
       default:
         throw new Error(`Unsupported container ${container}`);
     }
-
   }
 
   private beginNamespace(type: genspec.CodeName): void {

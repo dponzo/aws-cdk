@@ -1136,10 +1136,10 @@ abstract class DomainBase extends cdk.Resource implements IDomain {
   }
 
   private grant(
-    grantee: iam.IGrantable,
-    domainActions: string[],
-    resourceArn: string,
-    ...otherResourceArns: string[]
+      grantee: iam.IGrantable,
+      domainActions: string[],
+      resourceArn: string,
+      ...otherResourceArns: string[]
   ): iam.Grant {
     const resourceArns = [resourceArn, ...otherResourceArns];
 
@@ -1152,7 +1152,6 @@ abstract class DomainBase extends cdk.Resource implements IDomain {
 
     return grant;
   }
-
 }
 
 
@@ -1184,9 +1183,9 @@ export class Domain extends DomainBase implements IDomain, ec2.IConnectable {
    * @param domainEndpoint The domain's endpoint.
    */
   public static fromDomainEndpoint(
-    scope: Construct,
-    id: string,
-    domainEndpoint: string,
+      scope: Construct,
+      id: string,
+      domainEndpoint: string,
   ): IDomain {
     const stack = cdk.Stack.of(scope);
     const domainName = extractNameFromEndpoint(domainEndpoint);
@@ -1726,7 +1725,6 @@ export class Domain extends DomainBase implements IDomain, ec2.IConnectable {
       });
 
       if (props.encryptionAtRest?.kmsKey) {
-
         // https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/encryption-at-rest.html
 
         // these permissions are documented as required during domain creation.

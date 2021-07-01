@@ -558,8 +558,8 @@ export class Cluster extends Resource implements ICluster {
   }
 
   private cannedMetric(
-    fn: (dims: { ClusterName: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { ClusterName: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ ClusterName: this.clusterName }),
       ...props,

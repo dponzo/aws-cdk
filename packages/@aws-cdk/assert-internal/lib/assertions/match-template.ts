@@ -20,15 +20,15 @@ export function beASupersetOfTemplate(template: { [key: string]: any }) {
 }
 
 export function matchTemplate(
-  template: { [key: string]: any },
-  matchStyle: MatchStyle = MatchStyle.EXACT): Assertion<StackInspector> {
+    template: { [key: string]: any },
+    matchStyle: MatchStyle = MatchStyle.EXACT): Assertion<StackInspector> {
   return new StackMatchesTemplateAssertion(template, matchStyle);
 }
 
 class StackMatchesTemplateAssertion extends Assertion<StackInspector> {
   constructor(
-    private readonly template: { [key: string]: any },
-    private readonly matchStyle: MatchStyle) {
+      private readonly template: { [key: string]: any },
+      private readonly matchStyle: MatchStyle) {
     super();
   }
 

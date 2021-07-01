@@ -4,7 +4,6 @@ import { Duration } from '@aws-cdk/core';
  * Schedule for canary runs
  */
 export class Schedule {
-
   /**
    * The canary will be executed once.
    */
@@ -43,8 +42,8 @@ export class Schedule {
   }
 
   private constructor(
-    /**
+      /**
      * The Schedule expression
      */
-    public readonly expressionString: string) {}
+      public readonly expressionString: string) {}
 }

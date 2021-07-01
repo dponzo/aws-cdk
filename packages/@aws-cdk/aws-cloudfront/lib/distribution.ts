@@ -224,7 +224,6 @@ export interface DistributionProps {
  * A CloudFront distribution with associated origin(s) and caching behavior(s).
  */
 export class Distribution extends Resource implements IDistribution {
-
   /**
    * Creates a Distribution construct that represents an external (imported) distribution.
    */
@@ -446,7 +445,7 @@ export class Distribution extends Resource implements IDistribution {
   }
 
   private renderViewerCertificate(certificate: acm.ICertificate,
-    minimumProtocolVersion: SecurityPolicyProtocol = SecurityPolicyProtocol.TLS_V1_2_2019): CfnDistribution.ViewerCertificateProperty {
+      minimumProtocolVersion: SecurityPolicyProtocol = SecurityPolicyProtocol.TLS_V1_2_2019): CfnDistribution.ViewerCertificateProperty {
     return {
       acmCertificateArn: certificate.certificateArn,
       sslSupportMethod: SSLMethod.SNI,

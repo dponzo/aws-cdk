@@ -315,7 +315,6 @@ export interface IBaseService extends IService {
  */
 export abstract class BaseService extends Resource
   implements IBaseService, elbv2.IApplicationLoadBalancerTarget, elbv2.INetworkLoadBalancerTarget, elb.ILoadBalancerTarget {
-
   /**
    * The security groups which manage the allowed network traffic for the service.
    */
@@ -373,11 +372,11 @@ export abstract class BaseService extends Resource
    * Constructs a new instance of the BaseService class.
    */
   constructor(
-    scope: Construct,
-    id: string,
-    props: BaseServiceProps,
-    additionalProps: any,
-    taskDefinition: TaskDefinition) {
+      scope: Construct,
+      id: string,
+      props: BaseServiceProps,
+      additionalProps: any,
+      taskDefinition: TaskDefinition) {
     super(scope, id, {
       physicalName: props.serviceName,
     });

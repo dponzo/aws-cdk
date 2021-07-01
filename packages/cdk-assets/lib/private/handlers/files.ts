@@ -14,9 +14,9 @@ export class FileAssetHandler implements IAssetHandler {
   private readonly fileCacheRoot: string;
 
   constructor(
-    private readonly workDir: string,
-    private readonly asset: FileManifestEntry,
-    private readonly host: IHandlerHost) {
+      private readonly workDir: string,
+      private readonly asset: FileManifestEntry,
+      private readonly host: IHandlerHost) {
     this.fileCacheRoot = path.join(workDir, '.cache');
   }
 

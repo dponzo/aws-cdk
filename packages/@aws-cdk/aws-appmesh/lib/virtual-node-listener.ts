@@ -170,12 +170,12 @@ export abstract class VirtualNodeListener {
 
 class VirtualNodeListenerImpl extends VirtualNodeListener {
   constructor(private readonly protocol: Protocol,
-    private readonly healthCheck: HealthCheck | undefined,
-    private readonly timeout: HttpTimeout | undefined,
-    private readonly port: number = 8080,
-    private readonly tls: ListenerTlsOptions | undefined,
-    private readonly outlierDetection: OutlierDetection | undefined,
-    private readonly connectionPool: ConnectionPoolConfig | undefined) { super(); }
+      private readonly healthCheck: HealthCheck | undefined,
+      private readonly timeout: HttpTimeout | undefined,
+      private readonly port: number = 8080,
+      private readonly tls: ListenerTlsOptions | undefined,
+      private readonly outlierDetection: OutlierDetection | undefined,
+      private readonly connectionPool: ConnectionPoolConfig | undefined) { super(); }
 
   public bind(scope: Construct): VirtualNodeListenerConfig {
     return {

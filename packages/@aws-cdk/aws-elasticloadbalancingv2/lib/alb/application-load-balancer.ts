@@ -73,8 +73,7 @@ export class ApplicationLoadBalancer extends BaseLoadBalancer implements IApplic
    * Import an existing Application Load Balancer
    */
   public static fromApplicationLoadBalancerAttributes(
-    scope: Construct, id: string, attrs: ApplicationLoadBalancerAttributes): IApplicationLoadBalancer {
-
+      scope: Construct, id: string, attrs: ApplicationLoadBalancerAttributes): IApplicationLoadBalancer {
     return new ImportedApplicationLoadBalancer(scope, id, attrs);
   }
 
@@ -404,8 +403,8 @@ export class ApplicationLoadBalancer extends BaseLoadBalancer implements IApplic
   }
 
   private cannedMetric(
-    fn: (dims: { LoadBalancer: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { LoadBalancer: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ LoadBalancer: this.loadBalancerFullName }),
       ...props,

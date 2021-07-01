@@ -39,7 +39,6 @@ abstract class NetworkAclBase extends Resource implements INetworkAcl {
       ...options,
     });
   }
-
 }
 
 /**
@@ -338,8 +337,8 @@ abstract class SubnetNetworkAclAssociationBase extends Resource implements ISubn
 }
 export class SubnetNetworkAclAssociation extends SubnetNetworkAclAssociationBase {
   public static fromSubnetNetworkAclAssociationAssociationId(
-    scope: Construct, id: string,
-    subnetNetworkAclAssociationAssociationId: string): ISubnetNetworkAclAssociation {
+      scope: Construct, id: string,
+      subnetNetworkAclAssociationAssociationId: string): ISubnetNetworkAclAssociation {
     class Import extends SubnetNetworkAclAssociationBase {
       public readonly subnetNetworkAclAssociationAssociationId = subnetNetworkAclAssociationAssociationId;
     }

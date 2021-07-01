@@ -441,8 +441,8 @@ export class Canary extends cdk.Resource {
   }
 
   private cannedMetric(
-    fn: (dims: { CanaryName: string }) => MetricProps,
-    props?: MetricOptions): Metric {
+      fn: (dims: { CanaryName: string }) => MetricProps,
+      props?: MetricOptions): Metric {
     return new Metric({
       ...fn({ CanaryName: this.canaryName }),
       ...props,

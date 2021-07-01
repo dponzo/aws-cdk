@@ -536,8 +536,8 @@ export class ViewerCertificate {
   }
 
   private constructor(
-    public readonly props: CfnDistribution.ViewerCertificateProperty,
-    public readonly aliases: string[] = []) { }
+      public readonly props: CfnDistribution.ViewerCertificateProperty,
+      public readonly aliases: string[] = []) { }
 }
 
 export interface CloudFrontWebDistributionProps {
@@ -707,7 +707,6 @@ export interface CloudFrontWebDistributionAttributes {
  * @resource AWS::CloudFront::Distribution
  */
 export class CloudFrontWebDistribution extends cdk.Resource implements IDistribution {
-
   /**
    * Creates a construct that represents an external (imported) distribution.
    */

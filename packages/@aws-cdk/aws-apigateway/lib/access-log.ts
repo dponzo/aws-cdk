@@ -517,17 +517,17 @@ export class AccessLogFormat {
    * option to turn off specific fields.
    */
   public static jsonWithStandardFields(
-    fields: JsonWithStandardFieldProps = {
-      ip: true,
-      user: true,
-      caller: true,
-      requestTime: true,
-      httpMethod: true,
-      resourcePath: true,
-      status: true,
-      protocol: true,
-      responseLength: true,
-    }): AccessLogFormat {
+      fields: JsonWithStandardFieldProps = {
+        ip: true,
+        user: true,
+        caller: true,
+        requestTime: true,
+        httpMethod: true,
+        resourcePath: true,
+        status: true,
+        protocol: true,
+        responseLength: true,
+      }): AccessLogFormat {
     return this.custom(JSON.stringify({
       requestId: AccessLogField.contextRequestId(),
       ip: fields.ip ? AccessLogField.contextIdentitySourceIp() : undefined,

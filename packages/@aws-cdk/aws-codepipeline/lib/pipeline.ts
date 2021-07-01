@@ -170,9 +170,9 @@ abstract class PipelineBase extends Resource implements IPipeline {
   }
 
   public notifyOn(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options: PipelineNotifyOnOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options: PipelineNotifyOnOptions,
   ): notifications.INotificationRule {
     return new notifications.NotificationRule(this, id, {
       ...options,
@@ -182,9 +182,9 @@ abstract class PipelineBase extends Resource implements IPipeline {
   }
 
   public notifyOnExecutionStateChange(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options?: notifications.NotificationRuleOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options?: notifications.NotificationRuleOptions,
   ): notifications.INotificationRule {
     return this.notifyOn(id, target, {
       ...options,
@@ -200,9 +200,9 @@ abstract class PipelineBase extends Resource implements IPipeline {
   }
 
   public notifyOnAnyStageStateChange(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options?: notifications.NotificationRuleOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options?: notifications.NotificationRuleOptions,
   ): notifications.INotificationRule {
     return this.notifyOn(id, target, {
       ...options,
@@ -217,9 +217,9 @@ abstract class PipelineBase extends Resource implements IPipeline {
   }
 
   public notifyOnAnyActionStateChange(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options?: notifications.NotificationRuleOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options?: notifications.NotificationRuleOptions,
   ): notifications.INotificationRule {
     return this.notifyOn(id, target, {
       ...options,
@@ -233,9 +233,9 @@ abstract class PipelineBase extends Resource implements IPipeline {
   }
 
   public notifyOnAnyManualApprovalStateChange(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options?: notifications.NotificationRuleOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options?: notifications.NotificationRuleOptions,
   ): notifications.INotificationRule {
     return this.notifyOn(id, target, {
       ...options,

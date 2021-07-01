@@ -34,10 +34,9 @@ declare global {
 
 expect.extend({
   toMatchTemplate(
-    actual: cxapi.CloudFormationStackArtifact | core.Stack,
-    template: any,
-    matchStyle?: MatchStyle) {
-
+      actual: cxapi.CloudFormationStackArtifact | core.Stack,
+      template: any,
+      matchStyle?: MatchStyle) {
     const assertion = matchTemplate(template, matchStyle);
     const inspector = ourExpect(actual);
     const pass = assertion.assertUsing(inspector);
@@ -55,37 +54,33 @@ expect.extend({
   },
 
   toHaveResource(
-    actual: cxapi.CloudFormationStackArtifact | core.Stack,
-    resourceType: string,
-    properties?: any,
-    comparison?: ResourcePart) {
-
+      actual: cxapi.CloudFormationStackArtifact | core.Stack,
+      resourceType: string,
+      properties?: any,
+      comparison?: ResourcePart) {
     const assertion = new HaveResourceAssertion(resourceType, properties, comparison, false);
     return applyAssertion(assertion, actual);
   },
 
   toHaveResourceLike(
-    actual: cxapi.CloudFormationStackArtifact | core.Stack,
-    resourceType: string,
-    properties?: any,
-    comparison?: ResourcePart) {
-
+      actual: cxapi.CloudFormationStackArtifact | core.Stack,
+      resourceType: string,
+      properties?: any,
+      comparison?: ResourcePart) {
     const assertion = new HaveResourceAssertion(resourceType, properties, comparison, true);
     return applyAssertion(assertion, actual);
   },
 
   toHaveOutput(
-    actual: cxapi.CloudFormationStackArtifact | core.Stack,
-    props: HaveOutputProperties) {
-
+      actual: cxapi.CloudFormationStackArtifact | core.Stack,
+      props: HaveOutputProperties) {
     return applyAssertion(haveOutput(props), actual);
   },
 
   toCountResources(
-    actual: cxapi.CloudFormationStackArtifact | core.Stack,
-    resourceType: string,
-    count = 1) {
-
+      actual: cxapi.CloudFormationStackArtifact | core.Stack,
+      resourceType: string,
+      count = 1) {
     return applyAssertion(countResources(resourceType, count), actual);
   },
 });

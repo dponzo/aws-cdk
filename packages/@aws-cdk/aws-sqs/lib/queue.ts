@@ -240,7 +240,6 @@ export enum FifoThroughputLimit {
  * A new Amazon SQS queue
  */
 export class Queue extends QueueBase {
-
   /**
    * Import an existing SQS queue provided an ARN
    *

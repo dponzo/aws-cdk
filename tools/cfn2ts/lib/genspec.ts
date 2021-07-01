@@ -45,11 +45,11 @@ export class CodeName {
 
   /* eslint-disable @typescript-eslint/no-shadow */
   constructor(
-    readonly packageName: string,
-    readonly namespace: string,
-    readonly className: string,
-    readonly specName?: SpecName,
-    readonly methodName?: string) {
+      readonly packageName: string,
+      readonly namespace: string,
+      readonly className: string,
+      readonly specName?: SpecName,
+      readonly methodName?: string) {
   }
   /* eslint-enable @typescript-eslint/no-shadow */
 
@@ -97,9 +97,9 @@ export const TOKEN_NAME = new CodeName('', CORE_NAMESPACE, 'IResolvable');
  */
 export class Attribute {
   constructor(
-    readonly propertyName: string,
-    readonly attributeType: string,
-    readonly constructorArguments: string) {
+      readonly propertyName: string,
+      readonly attributeType: string,
+      readonly constructorArguments: string) {
   }
 }
 
@@ -372,5 +372,4 @@ export function typeDispatch<T>(resourceContext: CodeName, spec: schema.Property
   } else {
     return visitor.visitAtom(scalarTypes[0]);
   }
-
 }

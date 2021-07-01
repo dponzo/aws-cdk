@@ -76,10 +76,9 @@ class LiteralMatch extends Matcher {
   private readonly partialObjects: boolean;
 
   constructor(
-    public readonly name: string,
-    private readonly pattern: any,
-    options: LiteralMatchOptions = {}) {
-
+      public readonly name: string,
+      private readonly pattern: any,
+      options: LiteralMatchOptions = {}) {
     super();
     this.partialObjects = options.partialObjects ?? false;
     this.name = 'exact';
@@ -137,10 +136,9 @@ class ArrayMatch extends Matcher {
   private readonly partial: boolean;
 
   constructor(
-    public readonly name: string,
-    private readonly pattern: any[],
-    options: ArrayMatchOptions = {}) {
-
+      public readonly name: string,
+      private readonly pattern: any[],
+      options: ArrayMatchOptions = {}) {
     super();
     this.partial = options.subsequence ?? true;
     if (this.partial) {
@@ -205,10 +203,9 @@ class ObjectMatch extends Matcher {
   private readonly partial: boolean;
 
   constructor(
-    public readonly name: string,
-    private readonly pattern: {[key: string]: any},
-    options: ObjectMatchOptions = {}) {
-
+      public readonly name: string,
+      private readonly pattern: {[key: string]: any},
+      options: ObjectMatchOptions = {}) {
     super();
     this.partial = options.partial ?? true;
     if (this.partial) {

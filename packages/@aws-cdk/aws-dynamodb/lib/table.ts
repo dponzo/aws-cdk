@@ -836,7 +836,6 @@ abstract class TableBase extends Resource implements ITable {
    * You can customize this by using the `statistic` and `period` properties.
    */
   public metricSystemErrorsForOperations(props?: SystemErrorsForOperationsMetricOptions): cloudwatch.IMetric {
-
     if (props?.dimensions?.Operation) {
       throw new Error("The Operation dimension is not supported. Use the 'operations' property.");
     }
@@ -868,8 +867,7 @@ abstract class TableBase extends Resource implements ITable {
    * @param metricNameMapper Mapper function to allow controlling the individual metric name per operation.
    */
   private createMetricsForOperations(metricName: string, operations: Operation[],
-    props?: cloudwatch.MetricOptions, metricNameMapper?: (op: Operation) => string): Record<string, cloudwatch.IMetric> {
-
+      props?: cloudwatch.MetricOptions, metricNameMapper?: (op: Operation) => string): Record<string, cloudwatch.IMetric> {
     const metrics: Record<string, cloudwatch.IMetric> = {};
 
     const mapper = metricNameMapper ?? (op => op.toLowerCase());
@@ -879,7 +877,6 @@ abstract class TableBase extends Resource implements ITable {
     }
 
     for (const operation of operations) {
-
       const metric = this.metric(metricName, {
         ...props,
         dimensions: {
@@ -912,8 +909,8 @@ abstract class TableBase extends Resource implements ITable {
    * @param opts Options for keyActions, tableActions and streamActions
    */
   private combinedGrant(
-    grantee: iam.IGrantable,
-    opts: { keyActions?: string[], tableActions?: string[], streamActions?: string[] },
+      grantee: iam.IGrantable,
+      opts: { keyActions?: string[], tableActions?: string[], streamActions?: string[] },
   ): iam.Grant {
     if (opts.tableActions) {
       const resources = [this.tableArn,
@@ -950,8 +947,8 @@ abstract class TableBase extends Resource implements ITable {
   }
 
   private cannedMetric(
-    fn: (dims: { TableName: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { TableName: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ TableName: this.tableName }),
       ...props,
@@ -1006,9 +1003,7 @@ export class Table extends TableBase {
    * @param attrs A `TableAttributes` object.
    */
   public static fromTableAttributes(scope: Construct, id: string, attrs: TableAttributes): ITable {
-
     class Import extends TableBase {
-
       public readonly tableName: string;
       public readonly tableArn: string;
       public readonly tableStreamArn?: string;

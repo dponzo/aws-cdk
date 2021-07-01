@@ -28,15 +28,15 @@ export async function publishAssets(manifest: cdk_assets.AssetManifest, sdk: Sdk
 
 class PublishingAws implements cdk_assets.IAws {
   constructor(
-    /**
+      /**
      * The base SDK to work with
      */
-    private readonly aws: SdkProvider,
+      private readonly aws: SdkProvider,
 
-    /**
+      /**
      * Environment where the stack we're deploying is going
      */
-    private readonly targetEnv: cxapi.Environment) {
+      private readonly targetEnv: cxapi.Environment) {
   }
 
   public async discoverPartition(): Promise<string> {

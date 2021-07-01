@@ -40,7 +40,7 @@ export class SSMContextProviderPlugin implements ContextProviderPlugin {
    * @throws Error if a service error (other than ``ParameterNotFound``) occurs.
    */
   private async getSsmParameterValue(account: string, region: string, parameterName: string, lookupRoleArn?: string)
-    : Promise<AWS.SSM.GetParameterResult> {
+      : Promise<AWS.SSM.GetParameterResult> {
     const options = { assumeRoleArn: lookupRoleArn };
     const ssm = (await this.aws.forEnvironment(cxapi.EnvironmentUtils.make(account, region), Mode.ForReading, options)).ssm();
     try {

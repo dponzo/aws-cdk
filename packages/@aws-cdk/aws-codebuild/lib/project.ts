@@ -455,9 +455,9 @@ abstract class ProjectBase extends Resource implements IProject {
   }
 
   public notifyOn(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options: ProjectNotifyOnOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options: ProjectNotifyOnOptions,
   ): notifications.INotificationRule {
     return new notifications.NotificationRule(this, id, {
       ...options,
@@ -467,9 +467,9 @@ abstract class ProjectBase extends Resource implements IProject {
   }
 
   public notifyOnBuildSucceeded(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options?: notifications.NotificationRuleOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options?: notifications.NotificationRuleOptions,
   ): notifications.INotificationRule {
     return this.notifyOn(id, target, {
       ...options,
@@ -478,9 +478,9 @@ abstract class ProjectBase extends Resource implements IProject {
   }
 
   public notifyOnBuildFailed(
-    id: string,
-    target: notifications.INotificationRuleTarget,
-    options?: notifications.NotificationRuleOptions,
+      id: string,
+      target: notifications.INotificationRuleTarget,
+      options?: notifications.NotificationRuleOptions,
   ): notifications.INotificationRule {
     return this.notifyOn(id, target, {
       ...options,
@@ -495,8 +495,8 @@ abstract class ProjectBase extends Resource implements IProject {
   }
 
   private cannedMetric(
-    fn: (dims: { ProjectName: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { ProjectName: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ ProjectName: this.projectName }),
       ...props,
@@ -733,7 +733,6 @@ export interface BindToCodePipelineOptions {
  * A representation of a CodeBuild Project.
  */
 export class Project extends ProjectBase {
-
   public static fromProjectArn(scope: Construct, id: string, projectArn: string): IProject {
     const parsedArn = Stack.of(scope).parseArn(projectArn);
 
@@ -805,8 +804,7 @@ export class Project extends ProjectBase {
    * @returns an array of {@link CfnProject.EnvironmentVariableProperty} instances
    */
   public static serializeEnvVariables(environmentVariables: { [name: string]: BuildEnvironmentVariable },
-    validateNoPlainTextSecrets: boolean = false, principal?: iam.IGrantable): CfnProject.EnvironmentVariableProperty[] {
-
+      validateNoPlainTextSecrets: boolean = false, principal?: iam.IGrantable): CfnProject.EnvironmentVariableProperty[] {
     const ret = new Array<CfnProject.EnvironmentVariableProperty>();
     const ssmIamResources = new Array<string>();
     const secretsManagerIamResources = new Set<string>();
@@ -1254,9 +1252,8 @@ export class Project extends ProjectBase {
   }
 
   private renderEnvironment(
-    props: ProjectProps,
-    projectVars: { [name: string]: BuildEnvironmentVariable } = {}): CfnProject.EnvironmentProperty {
-
+      props: ProjectProps,
+      projectVars: { [name: string]: BuildEnvironmentVariable } = {}): CfnProject.EnvironmentProperty {
     const env = props.environment ?? {};
     const vars: { [name: string]: BuildEnvironmentVariable } = {};
     const containerVars = env.environmentVariables || {};
@@ -1912,10 +1909,9 @@ export class WindowsBuildImage implements IBuildImage {
    * @returns a Windows build image from a Docker Hub image.
    */
   public static fromDockerRegistry(
-    name: string,
-    options: DockerImageOptions = {},
-    imageType: WindowsImageType = WindowsImageType.STANDARD): IBuildImage {
-
+      name: string,
+      options: DockerImageOptions = {},
+      imageType: WindowsImageType = WindowsImageType.STANDARD): IBuildImage {
     return new WindowsBuildImage({
       ...options,
       imageId: name,
@@ -1936,10 +1932,9 @@ export class WindowsBuildImage implements IBuildImage {
    * @param tag Image tag (default "latest")
    */
   public static fromEcrRepository(
-    repository: ecr.IRepository,
-    tag: string = 'latest',
-    imageType: WindowsImageType = WindowsImageType.STANDARD): IBuildImage {
-
+      repository: ecr.IRepository,
+      tag: string = 'latest',
+      imageType: WindowsImageType = WindowsImageType.STANDARD): IBuildImage {
     return new WindowsBuildImage({
       imageId: repository.repositoryUriForTag(tag),
       imagePullPrincipalType: ImagePullPrincipalType.SERVICE_ROLE,
@@ -1952,11 +1947,10 @@ export class WindowsBuildImage implements IBuildImage {
    * Uses an Docker image asset as a Windows build image.
    */
   public static fromAsset(
-    scope: Construct,
-    id: string,
-    props: DockerImageAssetProps,
-    imageType: WindowsImageType = WindowsImageType.STANDARD): IBuildImage {
-
+      scope: Construct,
+      id: string,
+      props: DockerImageAssetProps,
+      imageType: WindowsImageType = WindowsImageType.STANDARD): IBuildImage {
     const asset = new DockerImageAsset(scope, id, props);
     return new WindowsBuildImage({
       imageId: asset.imageUri,

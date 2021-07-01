@@ -35,11 +35,11 @@ export class BootstrapStack {
   }
 
   protected constructor(
-    private readonly sdkProvider: SdkProvider,
-    private readonly sdk: ISDK,
-    private readonly resolvedEnvironment: cxapi.Environment,
-    private readonly toolkitStackName: string,
-    private readonly currentToolkitInfo: ToolkitInfo) {
+      private readonly sdkProvider: SdkProvider,
+      private readonly sdk: ISDK,
+      private readonly resolvedEnvironment: cxapi.Environment,
+      private readonly toolkitStackName: string,
+      private readonly currentToolkitInfo: ToolkitInfo) {
   }
 
   public get parameters(): Record<string, string> {
@@ -58,11 +58,10 @@ export class BootstrapStack {
    * Perform the actual deployment of a bootstrap stack, given a template and some parameters
    */
   public async update(
-    template: any,
-    parameters: Record<string, string | undefined>,
-    options: Omit<BootstrapEnvironmentOptions, 'parameters'>,
+      template: any,
+      parameters: Record<string, string | undefined>,
+      options: Omit<BootstrapEnvironmentOptions, 'parameters'>,
   ): Promise<DeployStackResult> {
-
     const newVersion = bootstrapVersionFromTemplate(template);
     if (this.currentToolkitInfo.found && newVersion < this.currentToolkitInfo.version && !options.force) {
       throw new Error(`Not downgrading existing bootstrap stack from version '${this.currentToolkitInfo.version}' to version '${newVersion}'. Use --force to force.`);

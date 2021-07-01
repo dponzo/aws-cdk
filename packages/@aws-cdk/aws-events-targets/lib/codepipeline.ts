@@ -21,8 +21,8 @@ export interface CodePipelineTargetOptions extends TargetBaseProps {
  */
 export class CodePipeline implements events.IRuleTarget {
   constructor(
-    private readonly pipeline: codepipeline.IPipeline,
-    private readonly options: CodePipelineTargetOptions = {}) {
+      private readonly pipeline: codepipeline.IPipeline,
+      private readonly options: CodePipelineTargetOptions = {}) {
   }
 
   public bind(_rule: events.IRule, _id?: string): events.RuleTargetConfig {

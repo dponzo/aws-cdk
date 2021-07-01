@@ -11,9 +11,9 @@ export class ContainerImageAssetHandler implements IAssetHandler {
   private readonly docker = new Docker(m => this.host.emitMessage(EventType.DEBUG, m));
 
   constructor(
-    private readonly workDir: string,
-    private readonly asset: DockerImageManifestEntry,
-    private readonly host: IHandlerHost) {
+      private readonly workDir: string,
+      private readonly asset: DockerImageManifestEntry,
+      private readonly host: IHandlerHost) {
   }
 
   public async publish(): Promise<void> {

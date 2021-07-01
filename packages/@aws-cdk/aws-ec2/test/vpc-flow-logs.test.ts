@@ -8,7 +8,7 @@ import { FlowLog, FlowLogDestination, FlowLogResourceType, Vpc } from '../lib';
 
 nodeunitShim({
   'with defaults set, it successfully creates with cloudwatch logs destination'(
-    test: Test,
+      test: Test,
   ) {
     const stack = getTestStack();
 
@@ -100,7 +100,7 @@ nodeunitShim({
     test.done();
   },
   'with s3 as the destination and all the defaults set, it successfully creates all the resources'(
-    test: Test,
+      test: Test,
   ) {
     const stack = getTestStack();
 

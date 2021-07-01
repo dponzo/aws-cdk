@@ -505,13 +505,13 @@ export class ResourceDifference implements IDifference<Resource> {
   private readonly resourceTypes: { readonly oldType?: string, readonly newType?: string };
 
   constructor(
-    public readonly oldValue: Resource | undefined,
-    public readonly newValue: Resource | undefined,
-    args: {
-      resourceType: { oldType?: string, newType?: string },
-      propertyDiffs: { [key: string]: PropertyDifference<any> },
-      otherDiffs: { [key: string]: Difference<any> }
-    },
+      public readonly oldValue: Resource | undefined,
+      public readonly newValue: Resource | undefined,
+      args: {
+        resourceType: { oldType?: string, newType?: string },
+        propertyDiffs: { [key: string]: PropertyDifference<any> },
+        otherDiffs: { [key: string]: Difference<any> }
+      },
   ) {
     this.resourceTypes = args.resourceType;
     this.propertyDiffs = args.propertyDiffs;

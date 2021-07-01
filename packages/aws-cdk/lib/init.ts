@@ -68,10 +68,10 @@ export class InitTemplate {
   public readonly aliases = new Set<string>();
 
   constructor(
-    private readonly basePath: string,
-    public readonly name: string,
-    public readonly languages: string[],
-    info: any) {
+      private readonly basePath: string,
+      public readonly name: string,
+      public readonly languages: string[],
+      info: any) {
     this.description = info.description;
     for (const alias of info.aliases || []) {
       this.aliases.add(alias);
@@ -340,7 +340,6 @@ async function postInstallJava(canUseNetwork: boolean, cwd: string) {
     warning('Unable to package compiled code as JAR');
     warning(mvnPackageWarning);
   }
-
 }
 
 async function postInstallPython(cwd: string) {

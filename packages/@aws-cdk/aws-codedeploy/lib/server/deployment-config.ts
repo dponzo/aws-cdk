@@ -26,7 +26,6 @@ export interface IServerDeploymentConfig {
  * Minimum number of healthy hosts for a server deployment.
  */
 export class MinimumHealthyHosts {
-
   /**
    * The minimum healhty hosts threshold expressed as an absolute number.
    */
@@ -94,10 +93,9 @@ export class ServerDeploymentConfig extends cdk.Resource implements IServerDeplo
    * @returns a Construct representing a reference to an existing custom Deployment Configuration
    */
   public static fromServerDeploymentConfigName(
-    scope: Construct,
-    id: string,
-    serverDeploymentConfigName: string): IServerDeploymentConfig {
-
+      scope: Construct,
+      id: string,
+      serverDeploymentConfigName: string): IServerDeploymentConfig {
     ignore(scope);
     ignore(id);
     return deploymentConfig(serverDeploymentConfigName);

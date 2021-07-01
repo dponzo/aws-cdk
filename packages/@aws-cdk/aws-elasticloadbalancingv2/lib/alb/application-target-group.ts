@@ -377,8 +377,8 @@ export class ApplicationTargetGroup extends TargetGroupBase implements IApplicat
   }
 
   private cannedMetric(
-    fn: (dims: { LoadBalancer: string, TargetGroup: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { LoadBalancer: string, TargetGroup: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({
         LoadBalancer: this.firstLoadBalancerFullName,

@@ -272,8 +272,8 @@ export class NetworkLoadBalancer extends BaseLoadBalancer implements INetworkLoa
   }
 
   private cannedMetric(
-    fn: (dims: { LoadBalancer: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { LoadBalancer: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ LoadBalancer: this.loadBalancerFullName }),
       ...props,

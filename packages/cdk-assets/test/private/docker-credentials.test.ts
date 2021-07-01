@@ -179,7 +179,6 @@ describe('fetchDockerLoginCredentials', () => {
       await expect(fetchDockerLoginCredentials(aws, config, 'ecr.example.com')).rejects.toThrow(/unexpected ECR authData format/);
     });
   });
-
 });
 
 function mockSecretWithSecretString(secretString: any) {

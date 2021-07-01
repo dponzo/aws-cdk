@@ -49,26 +49,26 @@ export interface BatchJobProps {
  */
 export class BatchJob implements events.IRuleTarget {
   constructor(
-    /**
+      /**
      * The JobQueue arn
      */
-    private readonly jobQueueArn: string,
+      private readonly jobQueueArn: string,
 
-    /**
+      /**
      * The JobQueue Resource
      */
-    private readonly jobQueueScope: IConstruct,
+      private readonly jobQueueScope: IConstruct,
 
-    /**
+      /**
      * The jobDefinition arn
      */
-    private readonly jobDefinitionArn: string,
+      private readonly jobDefinitionArn: string,
 
-    /**
+      /**
      * The JobQueue Resource
      */
-    private readonly jobDefinitionScope: IConstruct,
-    private readonly props: BatchJobProps = {},
+      private readonly jobDefinitionScope: IConstruct,
+      private readonly props: BatchJobProps = {},
   ) { }
 
   /**

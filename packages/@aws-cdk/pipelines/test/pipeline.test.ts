@@ -55,7 +55,6 @@ behavior('references stack template in subassembly', (suite) => {
       }),
     });
   });
-
 });
 
 behavior('obvious error is thrown when stage contains no stacks', (suite) => {

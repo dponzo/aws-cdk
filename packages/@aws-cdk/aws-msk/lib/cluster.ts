@@ -363,8 +363,8 @@ export class ClientAuthentication {
    * @param tlsProps - properties for TLS authentication
    */
   private constructor(
-    public readonly saslProps?: SaslAuthProps,
-    public readonly tlsProps?: TlsAuthProps,
+      public readonly saslProps?: SaslAuthProps,
+      public readonly tlsProps?: TlsAuthProps,
   ) {}
 }
 
@@ -378,9 +378,9 @@ export class Cluster extends ClusterBase {
    * Reference an existing cluster, defined outside of the CDK code, by name.
    */
   public static fromClusterArn(
-    scope: constructs.Construct,
-    id: string,
-    clusterArn: string,
+      scope: constructs.Construct,
+      id: string,
+      clusterArn: string,
   ): ICluster {
     class Import extends ClusterBase {
       public readonly clusterArn = clusterArn;
@@ -703,7 +703,6 @@ export class Cluster extends ClusterBase {
       });
     }
     return this._clusterBootstrapBrokers.getResponseField(responseField);
-
   }
   /**
    * Get the list of brokers that a client application can use to bootstrap

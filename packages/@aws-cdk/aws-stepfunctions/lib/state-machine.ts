@@ -133,7 +133,6 @@ export interface StateMachineProps {
  * A new or imported state machine.
  */
 abstract class StateMachineBase extends Resource implements IStateMachine {
-
   /**
    * Import a state machine
    */
@@ -339,8 +338,8 @@ abstract class StateMachineBase extends Resource implements IStateMachine {
   }
 
   private cannedMetric(
-    fn: (dims: { StateMachineArn: string }) => cloudwatch.MetricProps,
-    props?: cloudwatch.MetricOptions): cloudwatch.Metric {
+      fn: (dims: { StateMachineArn: string }) => cloudwatch.MetricProps,
+      props?: cloudwatch.MetricOptions): cloudwatch.Metric {
     return new cloudwatch.Metric({
       ...fn({ StateMachineArn: this.stateMachineArn }),
       ...props,

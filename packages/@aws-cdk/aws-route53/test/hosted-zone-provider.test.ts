@@ -42,7 +42,7 @@ nodeunitShim({
       test.done();
     },
     'HostedZoneProvider will return context values if available when using plain hosted zone id'(
-      test: Test,
+        test: Test,
     ) {
       // GIVEN
       const stack = new cdk.Stack(undefined, 'TestStack', {

@@ -283,11 +283,10 @@ export class CloudFormationDeployments {
    * Validate that the bootstrap stack has the right version for this stack
    */
   private async validateBootstrapStackVersion(
-    stackName: string,
-    requiresBootstrapStackVersion: number | undefined,
-    bootstrapStackVersionSsmParameter: string | undefined,
-    toolkitInfo: ToolkitInfo) {
-
+      stackName: string,
+      requiresBootstrapStackVersion: number | undefined,
+      bootstrapStackVersionSsmParameter: string | undefined,
+      toolkitInfo: ToolkitInfo) {
     if (requiresBootstrapStackVersion === undefined) { return; }
 
     try {

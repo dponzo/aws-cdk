@@ -90,14 +90,12 @@ describe('default properties', () => {
     });
 
     expect(stack).toHaveResource('AWS::DynamoDB::Table', { DeletionPolicy: CfnDeletionPolicy.RETAIN }, ResourcePart.CompleteDefinition);
-
   });
 
   test('removalPolicy is DESTROY', () => {
     new Table(stack, CONSTRUCT_NAME, { partitionKey: TABLE_PARTITION_KEY, removalPolicy: RemovalPolicy.DESTROY });
 
     expect(stack).toHaveResource('AWS::DynamoDB::Table', { DeletionPolicy: CfnDeletionPolicy.DELETE }, ResourcePart.CompleteDefinition);
-
   });
 
   test('hash + range key', () => {
@@ -1384,7 +1382,6 @@ test('error when adding more than 5 local secondary indexes', () => {
 
   expect(() => table.addLocalSecondaryIndex(lsiGenerator.next().value))
     .toThrow(/a maximum number of local secondary index per table is 5/);
-
 });
 
 test('error when adding a local secondary index with the name of a global secondary index', () => {
@@ -1583,7 +1580,6 @@ describe('metrics', () => {
   });
 
   test('Using metricSystemErrorsForOperations with no operations will default to all', () => {
-
     const stack = new Stack();
     const table = new Table(stack, 'Table', {
       partitionKey: { name: 'id', type: AttributeType.STRING },
@@ -1600,11 +1596,9 @@ describe('metrics', () => {
       'updateitem',
       'batchwriteitem',
     ]);
-
   });
 
   test('Can use metricSystemErrors without the TableName dimension', () => {
-
     const stack = new Stack();
     const table = new Table(stack, 'Table', {
       partitionKey: { name: 'id', type: AttributeType.STRING },
@@ -1614,11 +1608,9 @@ describe('metrics', () => {
       TableName: table.tableName,
       Operation: 'GetItem',
     });
-
   });
 
   test('Using metricSystemErrors without the Operation dimension will fail', () => {
-
     const stack = new Stack();
     const table = new Table(stack, 'Table', {
       partitionKey: { name: 'id', type: AttributeType.STRING },
@@ -1626,11 +1618,9 @@ describe('metrics', () => {
 
     expect(() => table.metricSystemErrors({ dimensions: { TableName: table.tableName } }))
       .toThrow(/'Operation' dimension must be passed for the 'SystemErrors' metric./);
-
   });
 
   test('Can use metricSystemErrorsForOperations on a Dynamodb Table', () => {
-
     // GIVEN
     const stack = new Stack();
     const table = new Table(stack, 'Table', {
@@ -1669,7 +1659,6 @@ describe('metrics', () => {
         },
       },
     });
-
   });
 
   test('Can use metricSystemErrors on a Dynamodb Table', () => {
@@ -1697,7 +1686,6 @@ describe('metrics', () => {
     });
 
     expect(() => table.metricUserErrors({ dimensions: { TableName: table.tableName } })).toThrow(/'dimensions' is not supported for the 'UserErrors' metric/);
-
   });
 
   test('Can use metricUserErrors on a Dynamodb Table', () => {
@@ -1735,7 +1723,6 @@ describe('metrics', () => {
   });
 
   test('Can use metricSuccessfulRequestLatency without the TableName dimension', () => {
-
     const stack = new Stack();
     const table = new Table(stack, 'Table', {
       partitionKey: { name: 'id', type: AttributeType.STRING },
@@ -1745,11 +1732,9 @@ describe('metrics', () => {
       TableName: table.tableName,
       Operation: 'GetItem',
     });
-
   });
 
   test('Using metricSuccessfulRequestLatency without the Operation dimension will fail', () => {
-
     const stack = new Stack();
     const table = new Table(stack, 'Table', {
       partitionKey: { name: 'id', type: AttributeType.STRING },
@@ -1757,7 +1742,6 @@ describe('metrics', () => {
 
     expect(() => table.metricSuccessfulRequestLatency({ dimensions: { TableName: table.tableName } }))
       .toThrow(/'Operation' dimension must be passed for the 'SuccessfulRequestLatency' metric./);
-
   });
 
   test('Can use metricSuccessfulRequestLatency on a Dynamodb Table', () => {
@@ -1784,7 +1768,6 @@ describe('metrics', () => {
 });
 
 describe('grants', () => {
-
   test('"grant" allows adding arbitrary actions associated with this table resource', () => {
     // GIVEN
     const stack = new Stack();

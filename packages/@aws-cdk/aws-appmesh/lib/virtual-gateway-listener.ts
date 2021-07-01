@@ -121,12 +121,11 @@ export abstract class VirtualGatewayListener {
  * Represents the properties needed to define an HTTP Listener for a VirtualGateway
  */
 class VirtualGatewayListenerImpl extends VirtualGatewayListener {
-
   constructor(private readonly protocol: Protocol,
-    private readonly healthCheck: HealthCheck | undefined,
-    private readonly port: number = 8080,
-    private readonly listenerTls: ListenerTlsOptions | undefined,
-    private readonly connectionPool: ConnectionPoolConfig | undefined) {
+      private readonly healthCheck: HealthCheck | undefined,
+      private readonly port: number = 8080,
+      private readonly listenerTls: ListenerTlsOptions | undefined,
+      private readonly connectionPool: ConnectionPoolConfig | undefined) {
     super();
   }
 

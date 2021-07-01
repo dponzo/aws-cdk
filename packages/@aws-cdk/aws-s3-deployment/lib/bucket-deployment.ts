@@ -237,7 +237,6 @@ export class BucketDeployment extends CoreConstruct {
         DistributionPaths: props.distributionPaths,
       },
     });
-
   }
 
   private renderSingletonUuid(memoryLimit?: number) {
@@ -291,7 +290,6 @@ function mapSystemMetadata(metadata: BucketDeploymentProps) {
  * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
  */
 export class CacheControl {
-
   /**
    * Sets 'must-revalidate'.
    */
@@ -338,10 +336,10 @@ export class CacheControl {
   public static fromString(s: string) { return new CacheControl(s); }
 
   private constructor(
-    /**
+      /**
      * The raw cache control setting.
      */
-    public readonly value: any,
+      public readonly value: any,
   ) {}
 }
 
@@ -436,10 +434,10 @@ export class Expires {
   public static fromString(s: string) { return new Expires(s); }
 
   private constructor(
-    /**
+      /**
      * The raw expiration date expression.
      */
-    public readonly value: any,
+      public readonly value: any,
   ) {}
 }
 

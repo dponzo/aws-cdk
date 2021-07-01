@@ -469,8 +469,7 @@ export class AuroraPostgresEngineVersion {
    *   for example "9.6"
    */
   public static of(auroraPostgresFullVersion: string, auroraPostgresMajorVersion: string,
-    auroraPostgresFeatures?: AuroraPostgresEngineFeatures): AuroraPostgresEngineVersion {
-
+      auroraPostgresFeatures?: AuroraPostgresEngineFeatures): AuroraPostgresEngineVersion {
     return new AuroraPostgresEngineVersion(auroraPostgresFullVersion, auroraPostgresMajorVersion, auroraPostgresFeatures);
   }
 

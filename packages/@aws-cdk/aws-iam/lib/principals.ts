@@ -155,8 +155,8 @@ export class PrincipalWithConditions implements IPrincipal {
   private additionalConditions: Conditions;
 
   constructor(
-    private readonly principal: IPrincipal,
-    conditions: Conditions,
+      private readonly principal: IPrincipal,
+      conditions: Conditions,
   ) {
     this.additionalConditions = conditions;
   }
@@ -256,12 +256,12 @@ export class PrincipalPolicyFragment {
    * @param conditions conditions that need to be applied to this policy
    */
   constructor(
-    public readonly principalJson: { [key: string]: string[] },
-    /**
+      public readonly principalJson: { [key: string]: string[] },
+      /**
      * The conditions under which the policy is in effect.
      * See [the IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html).
      */
-    public readonly conditions: Conditions = {}) {
+      public readonly conditions: Conditions = {}) {
   }
 }
 
@@ -426,9 +426,9 @@ export class FederatedPrincipal extends PrincipalBase {
    *   See [the IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html).
    */
   constructor(
-    public readonly federated: string,
-    public readonly conditions: Conditions,
-    assumeRoleAction: string = 'sts:AssumeRole') {
+      public readonly federated: string,
+      public readonly conditions: Conditions,
+      assumeRoleAction: string = 'sts:AssumeRole') {
     super();
 
     this.assumeRoleAction = assumeRoleAction;
@@ -448,7 +448,6 @@ export class FederatedPrincipal extends PrincipalBase {
  * Facebook, Google, etc.
  */
 export class WebIdentityPrincipal extends FederatedPrincipal {
-
   /**
    *
    * @param identityProvider identity provider (i.e. 'cognito-identity.amazonaws.com' for users authenticated through Cognito)
@@ -472,7 +471,6 @@ export class WebIdentityPrincipal extends FederatedPrincipal {
  * A principal that represents a federated identity provider as from a OpenID Connect provider.
  */
 export class OpenIdConnectPrincipal extends WebIdentityPrincipal {
-
   /**
    *
    * @param openIdConnectProvider OpenID Connect provider
@@ -645,8 +643,8 @@ class StackDependentToken implements cdk.IResolvable {
 class ServicePrincipalToken implements cdk.IResolvable {
   public readonly creationStack: string[];
   constructor(
-    private readonly service: string,
-    private readonly opts: ServicePrincipalOpts) {
+      private readonly service: string,
+      private readonly opts: ServicePrincipalOpts) {
     this.creationStack = cdk.captureStackTrace();
   }
 

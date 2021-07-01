@@ -113,8 +113,8 @@ export class CloudAssembly {
   }
 
   private selectTopLevelStacks(stacks: cxapi.CloudFormationStackArtifact[],
-    topLevelStacks: cxapi.CloudFormationStackArtifact[],
-    extend: ExtendedStackSelection = ExtendedStackSelection.None): StackCollection {
+      topLevelStacks: cxapi.CloudFormationStackArtifact[],
+      extend: ExtendedStackSelection = ExtendedStackSelection.None): StackCollection {
     if (topLevelStacks.length > 0) {
       return this.extendStacks(topLevelStacks, stacks, extend);
     } else {
@@ -123,8 +123,8 @@ export class CloudAssembly {
   }
 
   private selectMatchingStacks(stacks: cxapi.CloudFormationStackArtifact[],
-    patterns: string[],
-    extend: ExtendedStackSelection = ExtendedStackSelection.None): StackCollection {
+      patterns: string[],
+      extend: ExtendedStackSelection = ExtendedStackSelection.None): StackCollection {
     const matchingPattern = (pattern: string) => (stack: cxapi.CloudFormationStackArtifact) => {
       if (minimatch(stack.hierarchicalId, pattern)) {
         return true;
@@ -142,8 +142,8 @@ export class CloudAssembly {
   }
 
   private selectDefaultStacks(stacks: cxapi.CloudFormationStackArtifact[],
-    topLevelStacks: cxapi.CloudFormationStackArtifact[],
-    defaultSelection: DefaultSelection) {
+      topLevelStacks: cxapi.CloudFormationStackArtifact[],
+      defaultSelection: DefaultSelection) {
     switch (defaultSelection) {
       case DefaultSelection.MainAssembly:
         return new StackCollection(this, topLevelStacks);
@@ -164,8 +164,8 @@ export class CloudAssembly {
   }
 
   private extendStacks(matched: cxapi.CloudFormationStackArtifact[],
-    all: cxapi.CloudFormationStackArtifact[],
-    extend: ExtendedStackSelection = ExtendedStackSelection.None) {
+      all: cxapi.CloudFormationStackArtifact[],
+      extend: ExtendedStackSelection = ExtendedStackSelection.None) {
     const allStacks = new Map<string, cxapi.CloudFormationStackArtifact>();
     for (const stack of all) {
       allStacks.set(stack.hierarchicalId, stack);
@@ -318,8 +318,8 @@ function indexByHierarchicalId(stacks: cxapi.CloudFormationStackArtifact[]): Map
  * Modifies `selectedStacks` in-place.
  */
 function includeDownstreamStacks(
-  selectedStacks: Map<string, cxapi.CloudFormationStackArtifact>,
-  allStacks: Map<string, cxapi.CloudFormationStackArtifact>) {
+    selectedStacks: Map<string, cxapi.CloudFormationStackArtifact>,
+    allStacks: Map<string, cxapi.CloudFormationStackArtifact>) {
   const added = new Array<string>();
 
   let madeProgress;
@@ -347,8 +347,8 @@ function includeDownstreamStacks(
  * Modifies `selectedStacks` in-place.
  */
 function includeUpstreamStacks(
-  selectedStacks: Map<string, cxapi.CloudFormationStackArtifact>,
-  allStacks: Map<string, cxapi.CloudFormationStackArtifact>) {
+    selectedStacks: Map<string, cxapi.CloudFormationStackArtifact>,
+    allStacks: Map<string, cxapi.CloudFormationStackArtifact>) {
   const added = new Array<string>();
   let madeProgress = true;
   while (madeProgress) {

@@ -128,12 +128,12 @@ export class SdkProvider {
   private readonly plugins = new CredentialPlugins();
 
   public constructor(
-    private readonly defaultChain: AWS.CredentialProviderChain,
-    /**
+      private readonly defaultChain: AWS.CredentialProviderChain,
+      /**
      * Default region
      */
-    public readonly defaultRegion: string,
-    private readonly sdkOptions: ConfigurationOptions = {}) {
+      public readonly defaultRegion: string,
+      private readonly sdkOptions: ConfigurationOptions = {}) {
   }
 
   /**
@@ -303,10 +303,10 @@ export class SdkProvider {
    * otherwise it will be the current credentials.
    */
   private async withAssumedRole(
-    masterCredentials: Exclude<ObtainBaseCredentialsResult, { source: 'none' }>,
-    roleArn: string,
-    externalId: string | undefined,
-    region: string | undefined) {
+      masterCredentials: Exclude<ObtainBaseCredentialsResult, { source: 'none' }>,
+      roleArn: string,
+      externalId: string | undefined,
+      region: string | undefined) {
     debug(`Assuming role '${roleArn}'.`);
 
     region = region ?? this.defaultRegion;
@@ -510,7 +510,7 @@ function fmtObtainCredentialsError(targetAccountId: string, obtainResult: Obtain
  * - Credentials returned from a plugin
  */
 function fmtObtainedCredentials(
-  obtainResult: Exclude<ObtainBaseCredentialsResult, { source: 'none' }>): string {
+    obtainResult: Exclude<ObtainBaseCredentialsResult, { source: 'none' }>): string {
   switch (obtainResult.source) {
     case 'correctDefault':
       return 'current credentials';

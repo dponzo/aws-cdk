@@ -30,10 +30,10 @@ export class SessionPinningFilter {
   }
 
   private constructor(
-    /**
+      /**
      * Filter name
      */
-    public readonly filterName: string,
+      public readonly filterName: string,
   ) {}
 }
 
@@ -63,8 +63,8 @@ export class ProxyTarget {
   }
 
   private constructor(
-    private readonly dbInstance: IDatabaseInstance | undefined,
-    private readonly dbCluster: IDatabaseCluster | undefined) {
+      private readonly dbInstance: IDatabaseInstance | undefined,
+      private readonly dbCluster: IDatabaseCluster | undefined) {
   }
 
   /**
@@ -372,9 +372,9 @@ export class DatabaseProxy extends DatabaseProxyBase
    * Import an existing database proxy.
    */
   public static fromDatabaseProxyAttributes(
-    scope: Construct,
-    id: string,
-    attrs: DatabaseProxyAttributes,
+      scope: Construct,
+      id: string,
+      attrs: DatabaseProxyAttributes,
   ): IDatabaseProxy {
     class Import extends DatabaseProxyBase {
       public readonly dbProxyName = attrs.dbProxyName;
@@ -514,7 +514,7 @@ export class DatabaseProxy extends DatabaseProxyBase
  * ConnectionPoolConfiguration (L2 => L1)
  */
 function toConnectionPoolConfigurationInfo(
-  props: DatabaseProxyProps,
+    props: DatabaseProxyProps,
 ): CfnDBProxyTargetGroup.ConnectionPoolConfigurationInfoFormatProperty {
   return {
     connectionBorrowTimeout: props.borrowTimeout?.toSeconds(),

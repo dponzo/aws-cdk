@@ -68,11 +68,10 @@ export class SDK implements ISDK {
   private readonly cloudFormationRetryOptions = { maxRetries: 10, retryDelayOptions: { base: 1_000 } };
 
   constructor(
-    private readonly _credentials: AWS.Credentials,
-    region: string,
-    httpOptions: ConfigurationOptions = {},
-    private readonly sdkOptions: SdkOptions = {}) {
-
+      private readonly _credentials: AWS.Credentials,
+      region: string,
+      httpOptions: ConfigurationOptions = {},
+      private readonly sdkOptions: SdkOptions = {}) {
     this.config = {
       ...httpOptions,
       ...this.retryOptions,

@@ -9,7 +9,6 @@ export async function publish(args: {
   assets?: string[];
   profile?: string;
 }) {
-
   let manifest = AssetManifest.fromPath(args.path);
   log('verbose', `Loaded manifest from ${args.path}: ${manifest.entries.length} assets found`);
 

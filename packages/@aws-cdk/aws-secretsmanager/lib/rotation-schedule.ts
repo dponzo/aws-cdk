@@ -239,9 +239,9 @@ export class HostedRotation implements ec2.IConnectable {
   private _connections?: ec2.Connections;
 
   private constructor(
-    private readonly type: HostedRotationType,
-    private readonly props: SingleUserHostedRotationOptions | MultiUserHostedRotationOptions,
-    private readonly masterSecret?: ISecret,
+      private readonly type: HostedRotationType,
+      private readonly props: SingleUserHostedRotationOptions | MultiUserHostedRotationOptions,
+      private readonly masterSecret?: ISecret,
   ) {
     if (type.isMultiUser && !masterSecret) {
       throw new Error('The `masterSecret` must be specified when using the multi user scheme.');

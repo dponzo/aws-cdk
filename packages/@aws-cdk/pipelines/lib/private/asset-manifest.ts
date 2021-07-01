@@ -114,9 +114,8 @@ export class AssetManifestReader {
     ];
 
     function makeEntries<A, B, C>(
-      assets: Record<string, { source: A, destinations: Record<string, B> }>,
-      ctor: new (id: DestinationIdentifier, source: A, destination: B) => C): C[] {
-
+        assets: Record<string, { source: A, destinations: Record<string, B> }>,
+        ctor: new (id: DestinationIdentifier, source: A, destination: B) => C): C[] {
       const ret = new Array<C>();
       for (const [assetId, asset] of Object.entries(assets)) {
         for (const [destId, destination] of Object.entries(asset.destinations)) {
@@ -165,12 +164,12 @@ export class FileManifestEntry implements IManifestEntry {
   public readonly type = 'file';
 
   constructor(
-    /** Identifier for this asset */
-    public readonly id: DestinationIdentifier,
-    /** Source of the file asset */
-    public readonly source: FileSource,
-    /** Destination for the file asset */
-    public readonly destination: FileDestination,
+      /** Identifier for this asset */
+      public readonly id: DestinationIdentifier,
+      /** Source of the file asset */
+      public readonly source: FileSource,
+      /** Destination for the file asset */
+      public readonly destination: FileDestination,
   ) {
     this.genericSource = source;
   }
@@ -184,12 +183,12 @@ export class DockerImageManifestEntry implements IManifestEntry {
   public readonly type = 'docker-image';
 
   constructor(
-    /** Identifier for this asset */
-    public readonly id: DestinationIdentifier,
-    /** Source of the file asset */
-    public readonly source: DockerImageSource,
-    /** Destination for the file asset */
-    public readonly destination: DockerImageDestination,
+      /** Identifier for this asset */
+      public readonly id: DestinationIdentifier,
+      /** Source of the file asset */
+      public readonly source: DockerImageSource,
+      /** Destination for the file asset */
+      public readonly destination: DockerImageDestination,
   ) {
     this.genericSource = source;
   }
